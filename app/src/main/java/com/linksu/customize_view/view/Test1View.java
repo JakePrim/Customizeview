@@ -4,7 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -13,7 +16,7 @@ import android.view.View;
  * 作    者：linksus
  * 版    本：1.0
  * 创建日期：7/25 0025
- * 描    述：
+ * 描    述： Canvas 所有的简单图形的绘制
  * 修订历史：
  * ================================================
  */
@@ -52,11 +55,12 @@ public class Test1View extends View {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        paint.setColor(Color.RED); //画笔的颜色
-        paint.setStyle(Paint.Style.STROKE);//STROKE 画线模式、FILL填充模式(默认为填充模式)、FILL_AND_STROKE（即画线又填充）
+        paint.setColor(Color.BLACK); //画笔的颜色
+        paint.setStyle(Paint.Style.FILL);//STROKE 画线模式、FILL填充模式(默认为填充模式)、FILL_AND_STROKE（即画线又填充）
         paint.setStrokeWidth(20);// 画笔的宽度
         paint.setAntiAlias(true); // 设置开启 或 关闭 抗锯齿(图形会出现毛边现象)
         //画圆
@@ -83,14 +87,55 @@ public class Test1View extends View {
         //注意:设置 paint.setStyle(Paint.Style.STROKE); 画线模式是无效的
 //        canvas.drawPoint(50, 50, paint);
         //画批量的点
-        paint.setStrokeCap(Paint.Cap.ROUND);
-        float[] points = {0, 0, 50, 50, 50, 100, 100, 50, 100, 100, 150, 50, 150, 100};
+//        paint.setStrokeCap(Paint.Cap.BUTT);
+//        float[] points = {0, 0, 50, 50, 50, 100, 100, 50, 100, 100, 150, 50, 150, 100};
         /**
          * float[] pts : 这个数组是点的坐标，每两个成一对
          * int offset ：表示跳过数组的前几个数再开始记坐标
          * int count ：表示一共要绘制几个点
          */
         // 绘制四个点：(50, 50) (50, 100) (100, 50) (100, 100)
-        canvas.drawPoints(points, 2/* 跳过两个数，即前两个 0 */, 4/*一共绘制四个点*/, paint);
+//        canvas.drawPoints(points, 2/* 跳过两个数，即前两个 0 */, 5/*一共绘制四个点*/, paint);
+        // 画椭圆
+        /**
+         * 注意 若right == bottom 画出来的就是个圆形
+         */
+//        canvas.drawOval(50, 50, 350, 350, paint);//left, top, right, bottom 是这个椭圆的左、上、右、下四个边界点的坐标
+//        RectF rectF = new RectF(50, 50, 350, 200);
+//        canvas.drawOval(rectF, paint);
+
+        // 画线
+
+        /**
+         * float startX, float startY: 起始坐标
+         * float stopX, float stopY : 终止坐标
+         * 由于直线不是封闭图形，所以 paint.setStyle(style) 对直线没有影响。
+         */
+//        canvas.drawLine(200, 200, 800, 500, paint);
+
+        // 批量画线
+//        float lines[] = {20, 20, 120, 20, 70, 20, 70, 120, 20, 70, 120, 70, 20, 120, 120, 120};
+//        canvas.drawLines(lines, paint);
+
+        //画圆角矩形
+        /**
+         * left, top, right, bottom 是四条边的坐标
+         * rx 和 ry 是圆角的横向半径和纵向半径 也就是圆角的角度
+         */
+//        canvas.drawRoundRect(100, 100, 500, 300, 20, 20, paint);
+
+        //绘制弧形或扇形
+        /**
+         * drawArc() 是使用一个椭圆来描述弧形的。
+         * left, top, right, bottom 描述的是这个弧形所在的椭圆；
+         * startAngle 是弧形的起始角度（x 轴的正向，即正右的方向，是 0 度的位置；顺时针为正角度，逆时针为负角度），
+         * sweepAngle 是弧形划过的角度；
+         * useCenter 表示是否连接到圆心，如果不连接到圆心，就是弧形，如果连接到圆心，就是扇形。
+         */
+        canvas.drawArc(200, 100, 800, 500, -110, 100, true, paint);//扇形
+        canvas.drawArc(200, 100, 800, 500, 20, 140, false, paint);//弧形
+        paint.setStyle(Paint.Style.STROKE); //画线模式
+        paint.setStrokeWidth(10);// 画笔的宽度
+        canvas.drawArc(200, 100, 800, 500, 180, 60, false, paint);//绘制不封口的弧形
     }
 }
