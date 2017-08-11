@@ -64,16 +64,19 @@ public class Test1View extends View {
         paint.setAntiAlias(true); // 设置开启 或 关闭 抗锯齿(图形会出现毛边现象)
         //画圆
 //        canvas.drawCircle(100, 100, 100, paint);//float cx, float cy ：控制圆心的坐标。float radius ：控制圆的半径
+
         //画矩形
 //        canvas.drawRect(0, 0, 200, 200, paint);//float left, float top : 控制矩形的位置坐标。float right, float bottom ：控制矩形的宽和高
 //        @SuppressLint("DrawAllocation") Rect rect = new Rect(10, 10, 200, 200); //矩形其他的重载方法
 //        @SuppressLint("DrawAllocation") RectF rectF = new RectF(0, 0, 200, 200);
 //        canvas.drawRect(rect, paint);
+
         //颜色填充
 //        canvas.drawColor(Color.BLACK);
         //这类颜色填充方法一般用于在绘制之前设置底色，或者在绘制之后为界面设置半透明蒙版。
 //        canvas.drawRGB(100, 200, 100);
 //        canvas.drawARGB(100, 100, 200, 100);
+
         //画单个点
         /**
          * Paint.setStrokeCap(cap) 可以设置点的形状，
@@ -85,6 +88,7 @@ public class Test1View extends View {
 //        paint.setStrokeCap(Paint.Cap.SQUARE);// 方头
         //注意:设置 paint.setStyle(Paint.Style.STROKE); 画线模式是无效的
 //        canvas.drawPoint(50, 50, paint);
+
         //画批量的点
 //        paint.setStrokeCap(Paint.Cap.BUTT);
 //        float[] points = {0, 0, 50, 50, 50, 100, 100, 50, 100, 100, 150, 50, 150, 100};
@@ -95,6 +99,7 @@ public class Test1View extends View {
          */
         // 绘制四个点：(50, 50) (50, 100) (100, 50) (100, 100)
 //        canvas.drawPoints(points, 2/* 跳过两个数，即前两个 0 */, 5/*一共绘制四个点*/, paint);
+
         // 画椭圆
         /**
          * 注意 若right == bottom 画出来的就是个圆形
