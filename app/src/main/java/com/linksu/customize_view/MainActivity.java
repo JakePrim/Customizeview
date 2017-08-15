@@ -8,7 +8,9 @@ import android.os.Bundle;
 
 import com.linksu.customize_view.adapter.FragmentInfo;
 import com.linksu.customize_view.adapter.ViewPagerAdapter;
+import com.linksu.customize_view.fragment.HartFragment;
 import com.linksu.customize_view.fragment.HistogramFragment;
+import com.linksu.customize_view.fragment.RingFragment;
 import com.linksu.customize_view.fragment.SectorFragment;
 
 import java.util.ArrayList;
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         List<FragmentInfo> list = new ArrayList<>();
         list.add(new FragmentInfo("直方图", HistogramFragment.class));
         list.add(new FragmentInfo("扇形图", SectorFragment.class));
-        list.add(new FragmentInfo("圆环图", HistogramFragment.class));
+        list.add(new FragmentInfo("圆环图", RingFragment.class));
+        list.add(new FragmentInfo("画心形", HartFragment.class));
         return list;
     }
 }
