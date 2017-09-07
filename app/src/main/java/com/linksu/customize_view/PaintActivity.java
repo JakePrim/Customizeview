@@ -15,6 +15,7 @@ import com.linksu.customize_view.fragment.HistogramFragment;
 import com.linksu.customize_view.fragment.RingFragment;
 import com.linksu.customize_view.fragment.SectorFragment;
 import com.linksu.customize_view.fragmentTwo.BasePaintFragment;
+import com.linksu.customize_view.fragmentTwo.PaintTwoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public class PaintActivity extends AppCompatActivity {
     private List<FragmentInfo> initFragments() {
         List<FragmentInfo> list = new ArrayList<>();
         list.add(new FragmentInfo("渐变", BasePaintFragment.class));
+        list.add(new FragmentInfo("混合着色器", PaintTwoFragment.class));
         return list;
     }
 }

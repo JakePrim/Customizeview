@@ -93,16 +93,21 @@ public class PaintView extends View {
         canvas.drawText("辐射渐变", 190, 990, mPaint);
 
         // BitmapShader  Bitmap着色
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.aaa);
         /**
          * 参数：
          * bitmap：用来做模板的 Bitmap 对象
          * tileX：横向的 TileMode
          * tileY：纵向的 TileMode。
+         * drawCircle() + BitmapShader 可以绘制各种不同的图片形状（其他形状同理）
          */
-        BitmapShader shader4 = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        Shader shader4 = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         mPaint.setShader(shader4);
         canvas.drawCircle(800, 750, 200, mPaint);
+        canvas.drawText("Bitmap着色", 730, 990, mPaint);
+
+        //ComposeShader 混合着色器
+
 
     }
 }
