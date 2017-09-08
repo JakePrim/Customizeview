@@ -6,33 +6,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:text="自定义View 进阶的一个Demo" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableLeft="@drawable/icon_head"
+            android:drawablePadding="10dp"
+            android:gravity="center"
             android:onClick="baseView"
-            android:text="绘制基础" />
+            android:text="1.1绘制基础"
+            android:textSize="16dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/icon_head"
+            android:drawablePadding="10dp"
+            android:gravity="center"
             android:onClick="paintView"
-            android:text="Paint详解" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="文字的绘制"
-            android:onClick="textView"/>
+            android:text="1.2Paint详解"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/icon_head"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:onClick="textView"
+            android:text="1.3文字的绘制"
+            android:textSize="16dp" />
     </LinearLayout>
 </ScrollView>
