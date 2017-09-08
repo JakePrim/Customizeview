@@ -1,6 +1,5 @@
 package com.linksu.customize_view;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,10 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.linksu.customize_view.adapter.FragmentInfo;
 import com.linksu.customize_view.adapter.ViewPagerAdapter;
-import com.linksu.customize_view.fragment.HartFragment;
-import com.linksu.customize_view.fragment.HistogramFragment;
-import com.linksu.customize_view.fragment.RingFragment;
-import com.linksu.customize_view.fragment.SectorFragment;
+import com.linksu.customize_view.fragmentText.TextOneFragment;
+import com.linksu.customize_view.fragmentText.TextTwoFragment;
 import com.linksu.customize_view.fragmentTwo.BasePaintFragment;
 import com.linksu.customize_view.fragmentTwo.PaintTgrFragment;
 import com.linksu.customize_view.fragmentTwo.PaintTwoFragment;
@@ -30,14 +27,14 @@ import java.util.List;
  * 修订历史：
  * ================================================
  */
-public class PaintActivity extends AppCompatActivity {
+public class DrawTextActivity extends AppCompatActivity {
     private TabLayout tablayout;
     private ViewPager viewpager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_paint);
+        setContentView(R.layout.activity_text);
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         initTablayout();
@@ -52,9 +49,8 @@ public class PaintActivity extends AppCompatActivity {
 
     private List<FragmentInfo> initFragments() {
         List<FragmentInfo> list = new ArrayList<>();
-        list.add(new FragmentInfo("渐变", BasePaintFragment.class));
-        list.add(new FragmentInfo("混合着色器", PaintTwoFragment.class));
-        list.add(new FragmentInfo("ColorFilter ", PaintTgrFragment.class));
+        list.add(new FragmentInfo("drawText", TextOneFragment.class));
+        list.add(new FragmentInfo("测量文字", TextTwoFragment.class));
         return list;
     }
 }

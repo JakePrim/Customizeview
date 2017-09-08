@@ -52,7 +52,8 @@ public class PathTwoView extends View {
         Shader shader2 = new BitmapShader(bitmap1, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         // ComposeShader：结合两个 Shader
-        Shader shader = new ComposeShader(shader1, shader2, PorterDuff.Mode.DST_OUT);
+        // 具体的看Google 官方文档 https://developer.android.com/reference/android/graphics/PorterDuff.Mode.html
+        Shader shader = new ComposeShader(shader1, shader2, PorterDuff.Mode.OVERLAY);
         mPaint.setShader(shader);
         canvas.drawCircle(300, 300, 300, mPaint);
     }

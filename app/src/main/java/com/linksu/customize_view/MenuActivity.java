@@ -28,8 +28,13 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void paintView(View v){
+    public void paintView(View v) {
         Intent intent = new Intent(this, PaintActivity.class);
+        startActivity(intent);
+    }
+
+    public void textView(View v) {
+        Intent intent = new Intent(this, DrawTextActivity.class);
         startActivity(intent);
     }
 }

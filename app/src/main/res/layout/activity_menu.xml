@@ -28,5 +28,11 @@
             android:layout_gravity="center"
             android:onClick="paintView"
             android:text="Paint详解" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="文字的绘制"
+            android:onClick="textView"/>
     </LinearLayout>
 </ScrollView>
